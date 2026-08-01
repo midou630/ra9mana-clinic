@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{{ 'rtl' if is_rtl else 'ltr' }}" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>{{ t('auth.login') }} — {{ app_name }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="icon" href="{{ url_for('documents.serve_upload', filename=site_logo.split('/')[-1]) if site_logo else url_for('static', filename='icons/icon-192.png') }}">
+</head>
+<body>
+<div class="flash-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}<div class="flash flash-{{ category }}">{{ message }}</div>{% endfor %}
+    {% endwith %}
+</div>
+
+<div class="auth-split">
+    <div class="auth-split-illustration">
+        <div class="auth-lang-row">
+            {% for code, label in supported_languages.items() %}
+            <a href="{{ url_for('site.set_language', code=code) }}" class="{{ 'active' if lang == code }}">{{ code|upper }}</a>
+            {% endfor %}
+        </div>
+        <svg viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="190" cy="170" r="150" fill="rgba(255,255,255,0.06)"/>
+            <rect x="60" y="180" width="260" height="120" rx="16" fill="rgba(255,255,255,0.08)"/>
+            <rect x="60" y="180" width="260" height="30" rx="16" fill="rgba(255,255,255,0.18)"/>
+            <rect x="78" y="222" width="100" height="8" rx="4" fill="rgba(255,255,255,0.35)"/>
+            <rect x="78" y="240" width="150" height="8" rx="4" fill="rgba(255,255,255,0.22)"/>
+            <rect x="78" y="258" width="120" height="8" rx="4" fill="rgba(255,255,255,0.22)"/>
+            <circle cx="190" cy="95" r="40" fill="#FBD9BC"/>
+            <path d="M152 93c0-24 17-40 38-40s38 16 38 40" fill="#0B1120"/>
+            <rect x="150" y="122" width="80" height="70" rx="22" fill="rgba(255,255,255,0.92)"/>
+            <rect x="182" y="122" width="16" height="70" fill="#D7E3F8"/>
+            <circle cx="190" cy="150" r="7" fill="#1D4ED8"/>
+            <g transform="translate(280,70)">
+                <circle r="22" fill="rgba(255,255,255,0.15)"/>
+                <path d="M-8 0h16M0 -8v16" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(100,60)">
+                <circle r="16" fill="rgba(255,255,255,0.15)"/>
+                <path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+            </g>
+        </svg>
+        <div class="auth-split-quote">
+            <p>« RA9MANA Clinic a transformé la gestion administrative de mon cabinet — mes patients adorent la nouvelle salle d'attente digitale. »</p>
+            <div class="quote-author">Dr. Sara B. — Médecin généraliste</div>
+        </div>
+    </div>
+
+    <div class="auth-split-form {{ 'has-bg-image' if site_bg_login }}" {% if site_bg_login %}style="background-image:url('{{ url_for('documents.serve_upload', filename=site_bg_login.split('/')[-1]) }}');"{% endif %}>
+        <div class="auth-card" style="box-shadow:none;border:none;">
+            <div class="auth-logo">
+                <img src="{{ url_for('documents.serve_upload', filename=site_logo.split('/')[-1]) if site_logo else url_for('static', filename='brand/logo.png') }}" alt="{{ app_name }}" style="width:36px;height:36px;border-radius:10px;object-fit:contain;">
+                {{ app_name }}
+            </div>
+            <h2 style="margin:0 0 4px;">{{ t('auth.login_title') }}</h2>
+            <p class="text-secondary" style="margin:0 0 24px;font-size:13.5px;">{{ t('auth.login_subtitle') }}</p>
+
+            <form method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <label class="form-label">{{ t('auth.email') }}</label>
+                    <input class="form-control" type="email" name="email" value="{{ email }}" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">{{ t('auth.password') }}</label>
+                    <input class="form-control" type="password" name="mot_de_passe" required>
+                </div>
+                <div class="flex justify-between items-center" style="margin-bottom:20px;">
+                    <label class="checkbox-row" style="font-size:13px;color:var(--text-secondary);">
+                        <input type="checkbox" name="se_souvenir"> {{ t('auth.remember') }}
+                    </label>
+                    <a href="{{ url_for('auth.forgot_password') }}" style="font-size:13px;color:var(--primary);font-weight:600;">{{ t('auth.forgot') }}</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">{{ t('auth.login') }}</button>
+            </form>
+
+            <p style="text-align:center;margin-top:22px;font-size:13.3px;color:var(--text-secondary);">
+                {{ t('auth.no_account') }} <a href="{{ url_for('auth.register') }}" style="color:var(--primary);font-weight:600;">{{ t('auth.create_account') }}</a>
+            </p>
+            <p style="text-align:center;margin-top:10px;">
+                <a href="{{ url_for('site.landing') }}" style="font-size:12.5px;color:var(--text-muted);">← Retour à l'accueil</a>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
