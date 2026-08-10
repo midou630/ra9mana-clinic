@@ -52,6 +52,7 @@
         <div class="card" style="background:var(--primary-light);border-color:var(--primary);margin-bottom:14px;">
             <div class="text-muted" style="font-size:11.5px;">EN CONSULTATION — SALLE {{ en_consultation.salle }}</div>
             <div style="font-size:20px;font-weight:800;color:var(--primary-dark);">Ticket n°{{ en_consultation.numero_ticket }} — {{ en_consultation.prenom }} {{ en_consultation.nom }}</div>
+            <a href="/patients/{{ en_consultation.patient_id }}?consultation=1" class="btn btn-primary btn-sm" style="margin-top:10px;">⚡ Consultation Express</a>
         </div>
         {% endif %}
 

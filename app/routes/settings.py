@@ -20,6 +20,7 @@ TEMPLATE_STYLES = {
     "moderne": "Moderne — minimaliste, lignes fines",
     "audacieux": "Audacieux — en-tête large et coloré",
     "serein": "Serein — élégant, couleurs douces et apaisées",
+    "vague": "Vague Turquoise — courbe organique premium",
 }
 
 ALLOWED_IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp"}

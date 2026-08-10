@@ -75,6 +75,28 @@
 </div>
 {% endif %}
 
+<div class="card" style="margin-bottom:20px;">
+    <div class="card-title" style="margin-bottom:16px;">Indicateurs du mois</div>
+    <div class="grid grid-4">
+        <div class="circular-progress-wrap">
+            <div class="circular-progress" style="--cp-value:{{ pct_objectif_revenu }};--cp-color:var(--primary);"><span class="circular-progress-value">{{ pct_objectif_revenu }}%</span></div>
+            <div class="circular-progress-label">Objectif de revenu</div>
+        </div>
+        <div class="circular-progress-wrap">
+            <div class="circular-progress" style="--cp-value:{{ pct_consultations_jour }};--cp-color:var(--accent);"><span class="circular-progress-value">{{ pct_consultations_jour }}%</span></div>
+            <div class="circular-progress-label">Consultations du jour</div>
+        </div>
+        <div class="circular-progress-wrap">
+            <div class="circular-progress" style="--cp-value:{{ pct_stock_ok }};--cp-color:{{ 'var(--accent)' if pct_stock_ok >= 70 else 'var(--warning)' }};"><span class="circular-progress-value">{{ pct_stock_ok }}%</span></div>
+            <div class="circular-progress-label">Stock disponible</div>
+        </div>
+        <div class="circular-progress-wrap">
+            <div class="circular-progress" style="--cp-value:{{ pct_paiements }};--cp-color:var(--primary);"><span class="circular-progress-value">{{ pct_paiements }}%</span></div>
+            <div class="circular-progress-label">Paiements réglés</div>
+        </div>
+    </div>
+</div>
+
 <div class="grid grid-2" style="align-items:start;">
     <div class="card">
         <div class="card-header">

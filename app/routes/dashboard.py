@@ -1,5 +1,5 @@
 from datetime import date, timedelta
-from flask import Blueprint, render_template, session
+from flask import Blueprint, render_template, session, g
 
 from app.db import query_db
 from app.utils.security import login_required
@@ -87,6 +87,18 @@ def index():
         "SELECT statut, COUNT(*) c FROM rendez_vous WHERE clinic_id = ? AND date_rdv >= ? GROUP BY statut",
         (clinic_id, debut_mois))
 
+    objectif_revenu = (g.clinic["objectif_revenu_mensuel"] if g.clinic and g.clinic["objectif_revenu_mensuel"] else 100000) or 100000
+    pct_objectif_revenu = min(100, round((revenu_mois / objectif_revenu) * 100)) if objectif_revenu else 0
+    pct_consultations_jour = min(100, round((patients_aujourdhui / 15) * 100)) if patients_aujourdhui else 0
+    total_articles_stock = query_db("SELECT COUNT(*) c FROM medicaments WHERE clinic_id = ?", (clinic_id,), one=True)["c"]
+    pct_stock_ok = round(((total_articles_stock - stock_bas) / total_articles_stock) * 100) if total_articles_stock else 100
+    total_factures_mois = query_db(
+        "SELECT COUNT(*) c FROM factures WHERE clinic_id = ? AND date(date_facture) >= ?", (clinic_id, debut_mois), one=True)["c"]
+    factures_payees_mois = query_db(
+        "SELECT COUNT(*) c FROM factures WHERE clinic_id = ? AND date(date_facture) >= ? AND statut = 'paye'",
+        (clinic_id, debut_mois), one=True)["c"]
+    pct_paiements = round((factures_payees_mois / total_factures_mois) * 100) if total_factures_mois else 100
+
     return render_template(
         "dashboard.html",
         patients_aujourdhui=patients_aujourdhui,
@@ -105,4 +117,8 @@ def index():
         labels_semaine=labels_semaine,
         revenus_semaine=revenus_semaine,
         repartition_statuts=repartition_statuts,
+        pct_objectif_revenu=pct_objectif_revenu,
+        pct_consultations_jour=pct_consultations_jour,
+        pct_stock_ok=pct_stock_ok,
+        pct_paiements=pct_paiements,
     )

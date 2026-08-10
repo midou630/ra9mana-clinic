@@ -148,4 +148,7 @@
         </form>
     </div>
 </div>
+{% if request.args.get('consultation') %}
+<script>document.addEventListener('DOMContentLoaded', () => openModal('modal-consultation'));</script>
+{% endif %}
 {% endblock %}

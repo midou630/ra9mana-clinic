@@ -17,6 +17,7 @@ STYLE_COLORS = {
     "moderne": {"primary": HexColor("#0F172A"), "accent": HexColor("#1D4ED8")},
     "audacieux": {"primary": HexColor("#1D4ED8"), "accent": HexColor("#10B981")},
     "serein": {"primary": HexColor("#5F7470"), "accent": HexColor("#8FA79C")},
+    "vague": {"primary": HexColor("#0E7C86"), "accent": HexColor("#14B8A6")},
 }
 
 
@@ -69,6 +70,30 @@ def _header(c, width, height, clinic, titre, style="classique", taille="A4"):
                 c.drawImage(img, 15 * mm, height - band_h + (band_h - 15 * mm * s) / 2,
                             width=15 * mm * s, height=15 * mm * s, preserveAspectRatio=True, mask='auto')
                 x_text = 15 * mm + 18 * mm * s
+            except Exception:
+                pass
+    elif style == "vague":
+        c.setFillColor(colors["primary"])
+        p = c.beginPath()
+        p.moveTo(0, height)
+        p.lineTo(0, height - band_h)
+        p.curveTo(width * 0.55, height - band_h - 8 * mm, width * 0.7, height - band_h + 10 * mm, width, height - band_h + 2 * mm)
+        p.lineTo(width, height)
+        p.close()
+        c.drawPath(p, fill=1, stroke=0)
+        c.setFillColor(colors["accent"])
+        c.circle(width - 22 * mm, height - 10 * mm, 1.6 * mm, fill=1, stroke=0)
+        text_color = WHITE
+        title_color = WHITE
+        x_text = 15 * mm
+        y_name = height - 12 * mm
+        y_sub = height - 18 * mm
+        if clinic.get("logo_path"):
+            try:
+                img = ImageReader(clinic["logo_path"])
+                c.drawImage(img, 15 * mm, height - 22 * mm, width=14 * mm * s, height=14 * mm * s,
+                            preserveAspectRatio=True, mask='auto')
+                x_text = 15 * mm + 17 * mm * s
             except Exception:
                 pass
     else:

@@ -34,7 +34,8 @@
 <header class="lp-hero {{ 'has-bg-image' if site_bg_landing }}" {% if site_bg_landing %}style="--lp-hero-bg-url:url('{{ url_for('documents.serve_upload', filename=site_bg_landing.split('/')[-1]) }}');"{% endif %}>
     <div class="lp-container lp-hero-grid">
         <div>
-            <span class="lp-badge">✨ 14 jours d'essai gratuit</span>
+            <span class="lp-badge">🇩🇿 Plateforme Algérienne 100%</span>
+            <span class="lp-badge" style="margin-left:8px;">✨ 14 jours d'essai gratuit</span>
             <h1>{{ content.hero_titre }}</h1>
             <p class="lp-lead">{{ content.hero_sous_titre }}</p>
             <div class="lp-hero-actions">
@@ -251,7 +252,7 @@
                 <a href="{{ url_for('site.privacy') }}">Politique de confidentialité</a>
             </div>
         </div>
-        <div class="lp-footer-bottom">© {{ 2026 }} {{ app_name }}. {{ t('landing.footer_rights') }}</div>
+        <div class="lp-footer-bottom">🇩🇿 Conçu et développé en Algérie, pour les médecins algériens. © {{ 2026 }} {{ app_name }}. {{ t('landing.footer_rights') }}</div>
     </div>
 </footer>
 

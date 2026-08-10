@@ -57,6 +57,13 @@
 .doc-header.style-serein .doc-clinic-name { color: #2F3B38; font-weight: 700; }
 .doc-header.style-serein .doc-title { color: #5F7470; }
 
+.doc-header.style-vague {
+    background: linear-gradient(120deg, #0E7C86, #14B8A6 75%, #0E7C86);
+    color: #fff; margin: -16mm -18mm 22px -18mm; padding: 12mm 18mm;
+    border-radius: 0 0 60% 8px / 0 0 18px 8px;
+}
+.paper-a5 .doc-header.style-vague { margin: -10mm -12mm 16px -12mm; padding: 8mm 12mm; }
+
 .doc-header img.doc-logo { width: 46px; height: 46px; object-fit: contain; border-radius: 8px; background: rgba(255,255,255,0.15); padding: 4px; }
 .doc-header.style-moderne img.doc-logo { background: none; padding: 0; }
 .doc-clinic-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; }
