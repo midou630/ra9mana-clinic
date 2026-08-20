@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="manifest" href="{{ url_for('site.manifest') }}">
-<meta name="theme-color" content="#17324A">
+<meta name="theme-color" content="#2563EB">
 <link rel="icon" href="{{ url_for('documents.serve_upload', filename=site_logo.split('/')[-1]) if site_logo else url_for('static', filename='icons/icon-192.png') }}">
 <title>{% block title %}{{ app_name }}{% endblock %} — {{ app_name }}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
@@ -173,10 +173,10 @@
                     {% endfor %}
                 </div>
                 <div class="theme-switcher" title="Changer de thème">
-                    <span class="theme-dot" data-theme="light" style="background:#F3F5F4;border:1px solid #E4E8E6;"></span>
-                    <span class="theme-dot" data-theme="dark" style="background:#0E1418;"></span>
-                    <span class="theme-dot" data-theme="blue" style="background:#1D5A85;"></span>
-                    <span class="theme-dot" data-theme="emerald" style="background:#3C7460;"></span>
+                    <span class="theme-dot" data-theme="light" style="background:#F4F7FB;border:1px solid #E5EAF1;"></span>
+                    <span class="theme-dot" data-theme="dark" style="background:#0B1120;"></span>
+                    <span class="theme-dot" data-theme="blue" style="background:#1D4ED8;"></span>
+                    <span class="theme-dot" data-theme="emerald" style="background:#059669;"></span>
                     <span class="theme-dot theme-dot-custom" id="custom-color-trigger" title="Personnalisation"></span>
 
                     <div class="color-picker-popover" id="color-picker-popover">

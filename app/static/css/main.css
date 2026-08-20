@@ -1,7 +1,5 @@
 /* =========================================================
    RA9MANA Clinic — Système de design (Medical SaaS Premium)
-   Palette éditoriale sobre inspirée d'un cabinet clinique réel :
-   ardoise bleu-pétrole + bois clair + blanc marbré.
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
@@ -25,121 +23,121 @@
     --topbar-height: 72px;
 }
 
-/* ---------- Thème Clair (par défaut) — ardoise pétrole ---------- */
+/* ---------- Thème Clair (par défaut) ---------- */
 :root, [data-theme="light"] {
-    --bg-app: #F3F5F4;
+    --bg-app: #F4F7FB;
     --bg-surface: #FFFFFF;
-    --bg-surface-alt: #F7F8F7;
-    --border: #E4E8E6;
-    --text-primary: #17242B;
-    --text-secondary: #5B6E75;
-    --text-muted: #98A6AB;
+    --bg-surface-alt: #F8FAFC;
+    --border: #E5EAF1;
+    --text-primary: #0F172A;
+    --text-secondary: #5B6B82;
+    --text-muted: #94A3B8;
 
-    --primary: #2F6690;
-    --primary-dark: #244F70;
-    --primary-darker: #17324A;
-    --primary-light: #E6EEF3;
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --primary-darker: #1E3A8A;
+    --primary-light: #EAF1FE;
     --primary-contrast: #FFFFFF;
 
-    --accent: #B67A4E;
-    --accent-light: #F6ECE2;
-    --warning: #C08A2E;
-    --warning-light: #FBF0DC;
-    --danger: #B4453C;
-    --danger-light: #FAE7E4;
-    --info: #3D87AC;
+    --accent: #10B981;
+    --accent-light: #E7F9F1;
+    --warning: #F59E0B;
+    --warning-light: #FEF3E2;
+    --danger: #EF4444;
+    --danger-light: #FDECEC;
+    --info: #0EA5E9;
 
-    --sidebar-bg: linear-gradient(190deg, #1B3446, #142A3B 60%, #0F212F);
-    --sidebar-text: #9FB4C0;
+    --sidebar-bg: #101A34;
+    --sidebar-text: #AAB6CC;
     --sidebar-text-active: #FFFFFF;
-    --sidebar-active-bg: rgba(255,255,255,0.10);
+    --sidebar-active-bg: rgba(255,255,255,0.08);
 }
 
 [data-theme="dark"] {
-    --bg-app: #0E1418;
-    --bg-surface: #161F25;
-    --bg-surface-alt: #1D2830;
-    --border: #2B3941;
-    --text-primary: #EDF2F4;
-    --text-secondary: #A6B6BD;
-    --text-muted: #6D8189;
+    --bg-app: #0B1120;
+    --bg-surface: #131C31;
+    --bg-surface-alt: #1A2338;
+    --border: #253150;
+    --text-primary: #F1F5F9;
+    --text-secondary: #A7B4CC;
+    --text-muted: #6B7A99;
 
-    --primary: #6CA2C4;
-    --primary-dark: #4E85A8;
-    --primary-darker: #386382;
-    --primary-light: #1E3444;
-    --primary-contrast: #0E1418;
+    --primary: #4F83F1;
+    --primary-dark: #3B6DE0;
+    --primary-darker: #2C4FA6;
+    --primary-light: #1B2A4D;
+    --primary-contrast: #FFFFFF;
 
-    --accent: #D0A17A;
-    --accent-light: #35281C;
-    --warning: #E1B559;
-    --warning-light: #3B2F14;
-    --danger: #E08A82;
-    --danger-light: #3A211F;
-    --info: #6FB3D6;
+    --accent: #34D399;
+    --accent-light: #10321F;
+    --warning: #FBBF24;
+    --warning-light: #3A2A0C;
+    --danger: #F87171;
+    --danger-light: #3A1414;
+    --info: #38BDF8;
 
-    --sidebar-bg: linear-gradient(190deg, #0C161C, #0A1216 60%, #070D10);
-    --sidebar-text: #82949B;
+    --sidebar-bg: #070C18;
+    --sidebar-text: #8592AD;
     --sidebar-text-active: #FFFFFF;
-    --sidebar-active-bg: rgba(255,255,255,0.07);
+    --sidebar-active-bg: rgba(255,255,255,0.06);
 }
 
 [data-theme="blue"] {
-    --bg-app: #EEF3F7;
+    --bg-app: #EEF3FC;
     --bg-surface: #FFFFFF;
-    --bg-surface-alt: #F4F8FA;
-    --border: #D9E4EA;
-    --text-primary: #10222E;
-    --text-secondary: #47606E;
-    --text-muted: #8CA2AE;
+    --bg-surface-alt: #F3F7FE;
+    --border: #D7E3F8;
+    --text-primary: #0B1E4B;
+    --text-secondary: #4C628F;
+    --text-muted: #91A4C9;
 
-    --primary: #1D5A85;
-    --primary-dark: #164764;
-    --primary-darker: #0F3247;
-    --primary-light: #DCEAF3;
+    --primary: #1D4ED8;
+    --primary-dark: #1739A6;
+    --primary-darker: #142B7A;
+    --primary-light: #DCE7FC;
     --primary-contrast: #FFFFFF;
 
-    --accent: #A8703F;
-    --accent-light: #F2E4D4;
-    --warning: #B9862C;
-    --warning-light: #FAEFDA;
-    --danger: #B3423C;
-    --danger-light: #F8E4E3;
-    --info: #1D5A85;
+    --accent: #0EA5E9;
+    --accent-light: #E1F4FD;
+    --warning: #F59E0B;
+    --warning-light: #FEF3E2;
+    --danger: #E11D48;
+    --danger-light: #FDE6EB;
+    --info: #2563EB;
 
-    --sidebar-bg: linear-gradient(190deg, #0F3247, #0C283A 60%, #081C29);
-    --sidebar-text: #9AB6C6;
+    --sidebar-bg: #0B1F5C;
+    --sidebar-text: #A9BBEA;
     --sidebar-text-active: #FFFFFF;
     --sidebar-active-bg: rgba(255,255,255,0.10);
 }
 
 [data-theme="emerald"] {
-    --bg-app: #F2F6F3;
+    --bg-app: #F1F9F5;
     --bg-surface: #FFFFFF;
-    --bg-surface-alt: #F5F9F6;
-    --border: #DCE7E0;
-    --text-primary: #142722;
-    --text-secondary: #4E6A60;
-    --text-muted: #91AA9E;
+    --bg-surface-alt: #F4FBF7;
+    --border: #DAEEE3;
+    --text-primary: #0B2B1E;
+    --text-secondary: #4A6E5C;
+    --text-muted: #8EAE9D;
 
-    --primary: #3C7460;
-    --primary-dark: #2C5C4A;
-    --primary-darker: #1E4235;
-    --primary-light: #DEEDE5;
+    --primary: #059669;
+    --primary-dark: #047857;
+    --primary-darker: #065F46;
+    --primary-light: #DCF6EA;
     --primary-contrast: #FFFFFF;
 
-    --accent: #B08A4E;
-    --accent-light: #F3EADA;
-    --warning: #B98A2C;
-    --warning-light: #FAF0DA;
-    --danger: #B24A40;
-    --danger-light: #F8E5E2;
-    --info: #3B7F94;
+    --accent: #2563EB;
+    --accent-light: #E7EEFE;
+    --warning: #D97706;
+    --warning-light: #FDF0DD;
+    --danger: #DC2626;
+    --danger-light: #FCE4E4;
+    --info: #0891B2;
 
-    --sidebar-bg: linear-gradient(190deg, #16302A, #112620 60%, #0C1B17);
-    --sidebar-text: #9BB8AC;
+    --sidebar-bg: #0A2A1D;
+    --sidebar-text: #9DC4AF;
     --sidebar-text-active: #FFFFFF;
-    --sidebar-active-bg: rgba(255,255,255,0.09);
+    --sidebar-active-bg: rgba(255,255,255,0.08);
 }
 
 /* =========================================================

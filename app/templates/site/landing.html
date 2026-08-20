@@ -104,23 +104,26 @@
         <div class="lp-pricing-grid">
             <div class="lp-price-card">
                 <div class="lp-price-card-inner">
+                    <div class="lp-price-icon" style="background:linear-gradient(135deg,#6EE7C8,#34D399);">💳</div>
                     <div class="lp-price-plan-name">Mensuel</div>
-                    <div class="lp-price-amount">{{ content.tarif_mensuel_prix }} <span>DZD / mois</span></div>
-                    <a href="{{ url_for('auth.register') }}" class="lp-price-cta">Choisir ce plan →</a>
+                    <div class="lp-price-amount">{{ content.tarif_mensuel_prix }}<span>DZD /mois</span></div>
+                    <div class="lp-price-tagline">Facturation flexible, sans engagement</div>
                     <div class="lp-price-divider"></div>
                     <ul class="lp-price-features">
                         <li><span class="lp-check">✓</span> Patients illimités</li>
                         <li><span class="lp-check">✓</span> Toutes les fonctionnalités</li>
                         <li><span class="lp-check">✓</span> Support prioritaire</li>
                     </ul>
+                    <a href="{{ url_for('auth.register') }}" class="lp-price-cta">Commencer maintenant</a>
                 </div>
             </div>
             <div class="lp-price-card featured">
-                <span class="lp-tag">Populaire</span>
+                <span class="lp-tag">✨ Plus Populaire</span>
                 <div class="lp-price-card-inner">
+                    <div class="lp-price-icon" style="background:linear-gradient(135deg,#B08CF5,#7C5CE0);">🚀</div>
                     <div class="lp-price-plan-name">Annuel</div>
-                    <div class="lp-price-amount">{{ content.tarif_annuel_prix }} <span>DZD / an</span></div>
-                    <a href="{{ url_for('auth.register') }}" class="lp-price-cta">Choisir ce plan →</a>
+                    <div class="lp-price-amount">{{ content.tarif_annuel_prix }}<span>DZD /an</span></div>
+                    <div class="lp-price-tagline">2 mois offerts — le meilleur rapport qualité/prix</div>
                     <div class="lp-price-divider"></div>
                     <ul class="lp-price-features">
                         <li><span class="lp-check">✓</span> Patients illimités</li>
@@ -128,8 +131,14 @@
                         <li><span class="lp-check">✓</span> Support prioritaire</li>
                         <li><span class="lp-check">✓</span> 2 mois offerts</li>
                     </ul>
+                    <a href="{{ url_for('auth.register') }}" class="lp-price-cta">Choisir Annuel</a>
                 </div>
             </div>
+        </div>
+        <div class="lp-trust-row">
+            <div class="lp-trust-item">🛡️ <span>Garantie Satisfait</span></div>
+            <div class="lp-trust-item">🎧 <span>Support Réactif</span></div>
+            <div class="lp-trust-item">📋 <span>Sans Engagement</span></div>
         </div>
     </div>
 </section>
