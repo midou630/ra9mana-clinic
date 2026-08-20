@@ -7,6 +7,7 @@
 </div>
 <div class="card">
     {% if modeles %}
+    <div class="table-wrap">
     <table class="data-table">
         <thead><tr><th>Nom</th><th></th></tr></thead>
         <tbody>
@@ -23,6 +24,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
     {% else %}
     <div class="empty-state"><p>Aucun modèle. Créez des modèles pour accélérer la rédaction de vos ordonnances fréquentes (diabète, hypertension, rhume…).</p></div>
     {% endif %}

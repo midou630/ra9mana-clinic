@@ -16,35 +16,19 @@
 </div>
 
 <div class="auth-split">
-    <div class="auth-split-illustration">
+    <div class="auth-split-illustration" style="--auth-illustration-url:url('{{ url_for('static', filename='brand/photos/clinic-reception.jpg') }}');">
         <div class="auth-lang-row">
             {% for code, label in supported_languages.items() %}
             <a href="{{ url_for('site.set_language', code=code) }}" class="{{ 'active' if lang == code }}">{{ code|upper }}</a>
             {% endfor %}
         </div>
-        <svg viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="190" cy="170" r="150" fill="rgba(255,255,255,0.06)"/>
-            <rect x="60" y="180" width="260" height="120" rx="16" fill="rgba(255,255,255,0.08)"/>
-            <rect x="60" y="180" width="260" height="30" rx="16" fill="rgba(255,255,255,0.18)"/>
-            <rect x="78" y="222" width="100" height="8" rx="4" fill="rgba(255,255,255,0.35)"/>
-            <rect x="78" y="240" width="150" height="8" rx="4" fill="rgba(255,255,255,0.22)"/>
-            <rect x="78" y="258" width="120" height="8" rx="4" fill="rgba(255,255,255,0.22)"/>
-            <circle cx="190" cy="95" r="40" fill="#FBD9BC"/>
-            <path d="M152 93c0-24 17-40 38-40s38 16 38 40" fill="#0B1120"/>
-            <rect x="150" y="122" width="80" height="70" rx="22" fill="rgba(255,255,255,0.92)"/>
-            <rect x="182" y="122" width="16" height="70" fill="#D7E3F8"/>
-            <circle cx="190" cy="150" r="7" fill="#1D4ED8"/>
-            <g transform="translate(280,70)">
-                <circle r="22" fill="rgba(255,255,255,0.15)"/>
-                <path d="M-8 0h16M0 -8v16" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-            </g>
-            <g transform="translate(100,60)">
-                <circle r="16" fill="rgba(255,255,255,0.15)"/>
-                <path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-            </g>
-        </svg>
+        <div class="auth-split-brand">
+            <img src="{{ url_for('documents.serve_upload', filename=site_logo.split('/')[-1]) if site_logo else url_for('static', filename='brand/logo.png') }}" alt="{{ app_name }}">
+            {{ app_name }}
+        </div>
         <div class="auth-split-quote">
-            <p>« RA9MANA Clinic a transformé la gestion administrative de mon cabinet — mes patients adorent la nouvelle salle d'attente digitale. »</p>
+            <span class="quote-mark">“</span>
+            <p>RA9MANA Clinic a transformé la gestion administrative de mon cabinet — mes patients adorent la nouvelle salle d'attente digitale.</p>
             <div class="quote-author">Dr. Sara B. — Médecin généraliste</div>
         </div>
     </div>

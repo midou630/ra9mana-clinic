@@ -20,6 +20,7 @@
     <div class="card">
         <div class="card-header"><div class="card-title">Rendez-vous du jour</div></div>
         {% if rdvs_aujourdhui %}
+        <div class="table-wrap">
         <table class="data-table">
             <thead><tr><th>Heure</th><th>Patient</th><th>Statut</th><th></th></tr></thead>
             <tbody>
@@ -40,6 +41,7 @@
             {% endfor %}
             </tbody>
         </table>
+        </div>
         {% else %}
         <div class="empty-state"><p>Aucun rendez-vous aujourd'hui.</p></div>
         {% endif %}

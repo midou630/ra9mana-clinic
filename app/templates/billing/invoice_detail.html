@@ -15,6 +15,7 @@
 
 <div class="grid" style="grid-template-columns: 2fr 1fr; align-items:start; gap:20px;">
     <div class="card">
+        <div class="table-wrap">
         <table class="data-table">
             <thead><tr><th>Désignation</th><th>Qté</th><th>P.U.</th><th>Total</th></tr></thead>
             <tbody>
@@ -23,6 +24,7 @@
             {% endfor %}
             </tbody>
         </table>
+        </div>
     </div>
     <div class="card">
         <div class="flex justify-between" style="margin-bottom:8px;"><span class="text-muted">Total</span><strong>{{ facture.montant_total|money }}</strong></div>

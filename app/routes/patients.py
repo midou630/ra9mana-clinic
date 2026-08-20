@@ -92,6 +92,20 @@ def view_patient(patient_id):
     documents = query_db("SELECT * FROM documents_personnalises WHERE patient_id = ? ORDER BY date_creation DESC", (patient_id,))
     pieces = query_db("SELECT * FROM pieces_jointes WHERE patient_id = ? ORDER BY date_ajout DESC", (patient_id,))
 
+    derniere_consultation = consultations[0] if consultations else None
+    derniere_prescription = None
+    derniere_prescription_lignes = []
+    if prescriptions:
+        derniere_prescription = prescriptions[0]
+        derniere_prescription_lignes = query_db(
+            "SELECT medicament FROM prescription_lignes WHERE prescription_id = ?", (derniere_prescription["id"],))
+    resume_patient = {
+        "derniere_consultation": derniere_consultation,
+        "derniere_prescription_lignes": [l["medicament"] for l in derniere_prescription_lignes],
+        "nb_consultations": len(consultations),
+        "nb_documents": len(prescriptions) + len(labo) + len(radio) + len(documents),
+    }
+
     # Fusion en timeline chronologique
     timeline = []
     for c in consultations:
@@ -108,7 +122,7 @@ def view_patient(patient_id):
         timeline.append({"type": "document", "date": doc["date_creation"], "data": doc})
     timeline.sort(key=lambda x: str(x["date"]), reverse=True)
 
-    return render_template("patients/detail.html", patient=patient, timeline=timeline,
+    return render_template("patients/detail.html", patient=patient, timeline=timeline, resume_patient=resume_patient,
                             rdvs=rdvs, pieces=pieces)
 
 

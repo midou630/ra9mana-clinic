@@ -135,7 +135,7 @@
 <script>
 const ctx = document.getElementById('chartRevenus');
 const styles = getComputedStyle(document.documentElement);
-new Chart(ctx, {
+const revenusChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: {{ labels_semaine|tojson }},
@@ -154,6 +154,16 @@ new Chart(ctx, {
             x: { grid: { display: false } }
         }
     }
+});
+document.addEventListener('ra9mana:themechange', function () {
+    var live = getComputedStyle(document.documentElement);
+    var primary = live.getPropertyValue('--primary').trim();
+    var primaryLight = live.getPropertyValue('--primary-light').trim();
+    var ds = revenusChart.data.datasets[0];
+    ds.borderColor = primary;
+    ds.backgroundColor = primaryLight;
+    ds.pointBackgroundColor = primary;
+    revenusChart.update();
 });
 </script>
 {% endblock %}
